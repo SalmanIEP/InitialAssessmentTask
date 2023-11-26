@@ -1,22 +1,22 @@
 {
-    "validUser": {
-      "email": "eve.holt@reqres.in",
-      "password": "secure"
-    },
-    "invalidUser": {
-      "email": "invalid_user.in",
-      "password": "secure"
-    },
-    "invalidPassword": {
-      "email": "eve.holt@reqres.in",
-      "password": "test@dummypassword"
-    },
-    "emptyCredentials": {
-      "email": "",
-      "password": ""
-    },
-    "nonExistingUser": {
-      "email": "nonexisting@regres.in",
-      "password": "secure"
-    }
+  "validUser": {
+    "email": "eve.holt@reqres.in",
+    "password": "secure"
+  },
+  "invalidUser": {
+    "email": "invalid_user.in",
+    "password": "secure"
+  },
+  "invalidPassword": {
+    "email": "eve.holt@reqres.in",
+    "password": "test@dummypassword"
+  },
+  "emptyCredentials": {
+    "email": "",
+    "password": ""
+  },
+  "nonExistingUser": {
+    "email": "nonexisting@regres.in",
+    "password": "secure"
+  }
 }

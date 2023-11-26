@@ -10,7 +10,13 @@ Given('the API endpoint is {string}', (endpoint) => {
 When('I make a POST request with valid username and password', () => {
     cy.fixture('loginData').then((data) => {
         const { email, password } = data.validUser;
-        cy.loginRequest(email, password, requestEndPoint).as("response")
+        const options = {
+            body: {
+                "email": email,
+                "password": password,
+            }
+        }
+        cy.apiRequest('POST', requestEndPoint, options).as("response")
     });
 
 });
@@ -18,7 +24,13 @@ When('I make a POST request with valid username and password', () => {
 When('I make a POST request with {string} to login', (scenario) => {
     cy.fixture('loginData').then((data) => {
         const { email, password } = data[scenario];
-        cy.loginRequest(email, password, requestEndPoint).as("response")
+        const options = {
+            body: {
+                "email": email,
+                "password": password,
+            }
+        }
+        cy.apiRequest('POST', requestEndPoint, options).as("response")
     })
 
 });
@@ -31,7 +43,7 @@ Then('the response status code should be {string}', (statusCode) => {
 
 Then('the response should contain a valid authentication token', () => {
     cy.get('@response').then((response) => {
-        expect(response.body.token).to.to.exist;
+        expect(response.body.token).to.exist;
     })
 });
 
