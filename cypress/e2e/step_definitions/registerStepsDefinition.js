@@ -9,7 +9,8 @@ Given('the API endpoint is {string}', (endpoint) => {
 
 When('I make a POST request with valid email and password', () => {
     cy.fixture('registerData').then((data) => {
-        const { email, password } = data.validUser;
+        let { email, password } = data.validUser;
+        password = password === "secure" ? Cypress.env("password") : password
         const options = {
             body: {
                 "email": email,
@@ -23,7 +24,7 @@ When('I make a POST request with valid email and password', () => {
 
 Then('the response status code should be {string}', (statusCode) => {
     cy.get('@response').then((response) => {
-        expect(statusCode).to.eq(parseInt(response.status));
+        expect(response.status).to.eq(parseInt(statusCode));
     })
 });
 
@@ -35,7 +36,8 @@ Then('the response should contain an authentication token', () => {
 
 When('I make a POST request with {string} to register', (scenario) => {
     cy.fixture('registerData').then((data) => {
-        const { email, password } = data[scenario];
+        let { email, password } = data[scenario];
+        password = password === "secure" ? Cypress.env("password") : password
         const options = {
             body: {
                 "email": email,
@@ -48,6 +50,6 @@ When('I make a POST request with {string} to register', (scenario) => {
 
 Then('the response should contain an error message indicating {string}', (errorMessage) => {
     cy.get('@response').then((response) => {
-        expect(errorMessage).to.equal(response.body.error);
+        expect(response.body.error).to.equal(errorMessage);
     })
 });

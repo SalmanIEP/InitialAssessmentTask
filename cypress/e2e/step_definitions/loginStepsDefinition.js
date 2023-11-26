@@ -9,7 +9,8 @@ Given('the API endpoint is {string}', (endpoint) => {
 
 When('I make a POST request with valid username and password', () => {
     cy.fixture('loginData').then((data) => {
-        const { email, password } = data.validUser;
+        let { email, password } = data.validUser;
+        password = password === "secure" ? Cypress.env("password") : password
         const options = {
             body: {
                 "email": email,
@@ -23,7 +24,8 @@ When('I make a POST request with valid username and password', () => {
 
 When('I make a POST request with {string} to login', (scenario) => {
     cy.fixture('loginData').then((data) => {
-        const { email, password } = data[scenario];
+        let { email, password } = data[scenario];
+        password = password === "secure" ? Cypress.env("password") : password
         const options = {
             body: {
                 "email": email,
