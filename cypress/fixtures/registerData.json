@@ -1,0 +1,18 @@
+{
+  "validUser": {
+    "email": "eve.holt@reqres.in",
+    "password": "secure"
+  },
+  "missingPassword": {
+    "email": "eve.holt@reqres.in",
+    "password": ""
+  },
+  "missingEmail": {
+    "email": "",
+    "password": "secure"
+  },
+  "invalidEmail": {
+    "email": "random@test.com",
+    "password": "dummypass"
+  }
+}
