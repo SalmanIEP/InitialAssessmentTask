@@ -64,5 +64,10 @@ $ npm run cy:run:registerfeature --env password ="cityslicka"
 $ npm run cy:run:loginfeature --env password = "cityslicka"
 $ npm run cy:run:userfeature
 ```
+# Generate Report
+To generate the test report, execute the following command to generate
 
+```
+$ npm run generate_final_report
+```
 
